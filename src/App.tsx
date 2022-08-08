@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Card } from "./components/Card";
+import { API_KEY } from "./keys";
 
 const App = () => {
   const [marsRoverImages, setMarsRoverImages] = useState<Response | null>(null);
@@ -9,7 +10,7 @@ const App = () => {
   const handleFetchMarsRoverImages = () => {
     setLoading(true);
     fetch(
-      "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=BexxyVZjevAHxzt1THSAQZ7HrUalfHmNXAcEPW1s",
+      `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=${API_KEY}`,
       {
         headers: {
           "Content-Type": "application/json",
